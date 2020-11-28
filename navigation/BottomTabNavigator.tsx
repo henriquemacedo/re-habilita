@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
+import { Button } from "react-native";
 import * as React from "react";
 
 import Colors from "../constants/Colors";
@@ -27,14 +28,18 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Games"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      tabBarOptions={{
+        activeTintColor: Colors[colorScheme].tabIconSelected,
+        inactiveTintColor: Colors[colorScheme].tabIconDefault,
+        tabStyle: { backgroundColor: Colors[colorScheme].tabBackground },
+      }}
     >
       <BottomTab.Screen
         name="Games"
         component={GamesNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
+            <TabBarIcon name="ios-keypad" color={color} />
           ),
         }}
       />
@@ -43,7 +48,7 @@ export default function BottomTabNavigator() {
         component={PatientsNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
+            <TabBarIcon name="ios-contacts" color={color} />
           ),
         }}
       />
@@ -52,7 +57,7 @@ export default function BottomTabNavigator() {
         component={SettingsNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
+            <TabBarIcon name="ios-settings" color={color} />
           ),
         }}
       />
@@ -60,43 +65,78 @@ export default function BottomTabNavigator() {
   );
 }
 
-// You can explore the built-in icon families and icons on the web at:
-// https://icons.expo.fyi/
 function TabBarIcon(props: { name: string; color: string }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <Ionicons size={30} style={{ marginBottom: 0 }} {...props} />;
 }
 
-// Each tab has its own navigation stack, you can read more about this pattern here:
-// https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const GamesStack = createStackNavigator<GamesParamList>();
 
 function GamesNavigator() {
+  const colorScheme = useColorScheme();
+
   return (
     <GamesStack.Navigator>
       <GamesStack.Screen
         name="GamesScreen"
         component={GamesScreen}
-        options={{ headerTitle: "Games" }}
+        options={{
+          headerTitle: "Games",
+          headerStyle: {
+            backgroundColor: Colors[colorScheme].safeArea,
+          },
+          headerTintColor: "#fff",
+        }}
       />
       <GamesStack.Screen
         name="GameAttentionScreen"
         component={GameAttentionScreen}
-        options={{ headerTitle: "Attention" }}
+        options={{
+          headerTitle: "Attention",
+          headerStyle: {
+            backgroundColor: Colors[colorScheme].safeArea,
+          },
+          headerTintColor: "#fff",
+          headerRight: () => (
+            <Button
+              onPress={() => alert("This is a button!")}
+              title="Hint"
+              color="#fff"
+            />
+          ),
+        }}
       />
       <GamesStack.Screen
         name="GameLanguageScreen"
         component={GameLanguageScreen}
-        options={{ headerTitle: "Language" }}
+        options={{
+          headerTitle: "Language",
+          headerStyle: {
+            backgroundColor: Colors[colorScheme].safeArea,
+          },
+          headerTintColor: "#fff",
+        }}
       />
       <GamesStack.Screen
         name="GameRecognitionScreen"
         component={GameRecognitionScreen}
-        options={{ headerTitle: "Recognition" }}
+        options={{
+          headerTitle: "Recognition",
+          headerStyle: {
+            backgroundColor: Colors[colorScheme].safeArea,
+          },
+          headerTintColor: "#fff",
+        }}
       />
       <GamesStack.Screen
         name="GameMovementScreen"
         component={GameMovementScreen}
-        options={{ headerTitle: "Movement" }}
+        options={{
+          headerTitle: "Movement",
+          headerStyle: {
+            backgroundColor: Colors[colorScheme].safeArea,
+          },
+          headerTintColor: "#fff",
+        }}
       />
     </GamesStack.Navigator>
   );
@@ -105,12 +145,20 @@ function GamesNavigator() {
 const PatientsStack = createStackNavigator<PatientsParamList>();
 
 function PatientsNavigator() {
+  const colorScheme = useColorScheme();
+
   return (
     <PatientsStack.Navigator>
       <PatientsStack.Screen
         name="PatientsScreen"
         component={PatientsScreen}
-        options={{ headerTitle: "Patients" }}
+        options={{
+          headerTitle: "Patients",
+          headerStyle: {
+            backgroundColor: Colors[colorScheme].safeArea,
+          },
+          headerTintColor: "#fff",
+        }}
       />
     </PatientsStack.Navigator>
   );
@@ -119,12 +167,20 @@ function PatientsNavigator() {
 const SettingsStack = createStackNavigator<SettingsParamList>();
 
 function SettingsNavigator() {
+  const colorScheme = useColorScheme();
+
   return (
     <SettingsStack.Navigator>
       <SettingsStack.Screen
         name="SettingsScreen"
         component={SettingsScreen}
-        options={{ headerTitle: "Settings" }}
+        options={{
+          headerTitle: "Settings",
+          headerStyle: {
+            backgroundColor: Colors[colorScheme].safeArea,
+          },
+          headerTintColor: "#fff",
+        }}
       />
     </SettingsStack.Navigator>
   );

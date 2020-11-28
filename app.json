@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "re-habilita",
+    "name": "Re-Habilita",
     "slug": "re-habilita",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
@@ -29,6 +29,8 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "description": "Tangible Interface for Rehabilitation",
+    "githubUrl": "https://github.com/henriquemacedo/re-habilita"
   }
 }
