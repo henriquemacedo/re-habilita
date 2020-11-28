@@ -4,14 +4,23 @@ export type RootStackParamList = {
 };
 
 export type BottomTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  Games: undefined;
+  Patients: undefined;
+  Settings: undefined;
 };
 
-export type TabOneParamList = {
-  TabOneScreen: undefined;
+export type GamesParamList = {
+  GamesScreen: undefined;
+  GameAttentionScreen: undefined;
+  GameLanguageScreen: undefined;
+  GameRecognitionScreen: undefined;
+  GameMovementScreen: undefined;
 };
 
-export type TabTwoParamList = {
-  TabTwoScreen: undefined;
+export type PatientsParamList = {
+  PatientsScreen: undefined;
+};
+
+export type SettingsParamList = {
+  SettingsScreen: undefined;
 };

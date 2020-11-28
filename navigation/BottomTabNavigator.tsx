@@ -1,13 +1,23 @@
-import { Ionicons } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
+import { Ionicons } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import * as React from "react";
 
-import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import Colors from "../constants/Colors";
+import useColorScheme from "../hooks/useColorScheme";
+import GamesScreen from "../screens/GamesScreen";
+import GameAttentionScreen from "../screens/games/GameAttentionScreen";
+import GameLanguageScreen from "../screens/games/GameLanguageScreen";
+import GameRecognitionScreen from "../screens/games/GameRecognitionScreen";
+import GameMovementScreen from "../screens/games/GameMovementScreen";
+import PatientsScreen from "../screens/PatientsScreen";
+import SettingsScreen from "../screens/SettingsScreen";
+import {
+  BottomTabParamList,
+  GamesParamList,
+  PatientsParamList,
+  SettingsParamList,
+} from "../types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -16,20 +26,34 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      initialRouteName="Games"
+      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+    >
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
+        name="Games"
+        component={GamesNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="ios-code" color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="Patients"
+        component={PatientsNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="ios-code" color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Settings"
+        component={SettingsNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="ios-code" color={color} />
+          ),
         }}
       />
     </BottomTab.Navigator>
@@ -44,30 +68,64 @@ function TabBarIcon(props: { name: string; color: string }) {
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
+const GamesStack = createStackNavigator<GamesParamList>();
 
-function TabOneNavigator() {
+function GamesNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+    <GamesStack.Navigator>
+      <GamesStack.Screen
+        name="GamesScreen"
+        component={GamesScreen}
+        options={{ headerTitle: "Games" }}
       />
-    </TabOneStack.Navigator>
+      <GamesStack.Screen
+        name="GameAttentionScreen"
+        component={GameAttentionScreen}
+        options={{ headerTitle: "Attention" }}
+      />
+      <GamesStack.Screen
+        name="GameLanguageScreen"
+        component={GameLanguageScreen}
+        options={{ headerTitle: "Language" }}
+      />
+      <GamesStack.Screen
+        name="GameRecognitionScreen"
+        component={GameRecognitionScreen}
+        options={{ headerTitle: "Recognition" }}
+      />
+      <GamesStack.Screen
+        name="GameMovementScreen"
+        component={GameMovementScreen}
+        options={{ headerTitle: "Movement" }}
+      />
+    </GamesStack.Navigator>
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const PatientsStack = createStackNavigator<PatientsParamList>();
 
-function TabTwoNavigator() {
+function PatientsNavigator() {
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+    <PatientsStack.Navigator>
+      <PatientsStack.Screen
+        name="PatientsScreen"
+        component={PatientsScreen}
+        options={{ headerTitle: "Patients" }}
       />
-    </TabTwoStack.Navigator>
+    </PatientsStack.Navigator>
+  );
+}
+
+const SettingsStack = createStackNavigator<SettingsParamList>();
+
+function SettingsNavigator() {
+  return (
+    <SettingsStack.Navigator>
+      <SettingsStack.Screen
+        name="SettingsScreen"
+        component={SettingsScreen}
+        options={{ headerTitle: "Settings" }}
+      />
+    </SettingsStack.Navigator>
   );
 }
