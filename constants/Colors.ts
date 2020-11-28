@@ -12,6 +12,8 @@ export default {
     tabIconDefault: inactiveTint,
     tabIconSelected: tintColorLight,
     tabBackground: primary,
+    contentBackground: "#efeff4",
+    card: "#fff",
   },
   dark: {
     headerBar: primary,
@@ -21,5 +23,7 @@ export default {
     tabIconDefault: "#8d8d8d",
     tabIconSelected: tintColorDark,
     tabBackground: "#121212",
+    contentBackground: "#171717",
+    card: "#2b2b2b",
   },
 };
