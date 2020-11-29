@@ -8,7 +8,7 @@ const Wrapper = styled.View`
   height: 100%;
 `;
 
-const Cenas = styled.View`
+const GameArea = styled.View`
   flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
@@ -69,7 +69,7 @@ export default function GameAttention() {
 
   return (
     <Wrapper>
-      <Cenas>
+      <GameArea>
         {orderFigures.slice(0, 4).map((item, index) => (
           <TouchArea
             key={index}
@@ -89,7 +89,7 @@ export default function GameAttention() {
             <Image source={item.figure} />
           </TouchArea>
         ))}
-      </Cenas>
+      </GameArea>
       <GameLegend legend={`Place the polyhedra on top of the ${solid}`} />
     </Wrapper>
   );
