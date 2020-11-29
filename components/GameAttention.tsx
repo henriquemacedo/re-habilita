@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import { View, Text, Image } from "react-native";
+import { Image } from "react-native";
 
 import GameLegend from "./GameLegend";
 
@@ -43,7 +43,11 @@ export default function GameAttention() {
     },
   ];
 
+  const chooseSolid = ["square", "triangle", "circle"];
+
   const [orderFigures, setOrderFigures] = useState(figures);
+  const [solid, setSolid] = useState(["square"]);
+  const [correct, setCorrect] = useState(false);
 
   const random = (array: any) => {
     var currentIndex = array.length,
@@ -69,19 +73,24 @@ export default function GameAttention() {
         {orderFigures.slice(0, 4).map((item, index) => (
           <TouchArea
             key={index}
+            onTouchStart={() => {
+              setCorrect(item.name === solid[0] ? true : false);
+            }}
             onTouchEnd={() => {
               setOrderFigures(random(figures));
-              // console.log("touchEnd", e.nativeEvent);
-              // console.log(orderFigures);
-              // random(figures);
+              setSolid(random(chooseSolid).slice(0, 1));
+              setCorrect(false);
+            }}
+            style={{
+              backgroundColor:
+                item.name === solid[0] && correct ? "#81C784" : "transparent",
             }}
           >
             <Image source={item.figure} />
-            {/* <Text>{item.name}</Text> */}
           </TouchArea>
         ))}
       </Cenas>
-      <GameLegend legend="Place the polyhedra on top of the square" />
+      <GameLegend legend={`Place the polyhedra on top of the ${solid}`} />
     </Wrapper>
   );
 }

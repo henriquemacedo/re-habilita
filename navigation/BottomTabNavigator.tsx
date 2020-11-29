@@ -98,7 +98,7 @@ function GamesNavigator() {
           headerTintColor: "#fff",
           headerRight: () => (
             <Button
-              onPress={() => alert("This is a button!")}
+              onPress={() => alert("Try the solid blue")}
               title="Hint"
               color="#fff"
             />
