@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import { Text, Pressable, TouchableWithoutFeedback } from "react-native";
+import { Text, View, Pressable, TouchableWithoutFeedback } from "react-native";
+import GameWrapper from "../../components/GameWrapper";
+import GameAttention from "../../components/GameAttention";
 
 const Wrapper = styled.View`
   flex: 1;
@@ -38,7 +40,11 @@ export default function GameAttentionScreen() {
 
   return (
     <Wrapper>
-      <TouchableWithoutFeedback onPress={safeAreaTouch}>
+      <GameWrapper>
+        <GameAttention />
+      </GameWrapper>
+
+      {/* <TouchableWithoutFeedback onPress={safeAreaTouch}>
         <Card
           onTouchStart={(e) => {
             console.log("touchMove", e.nativeEvent);
@@ -64,7 +70,7 @@ export default function GameAttentionScreen() {
             {({ pressed }) => <Text>{pressed ? "Pressed!" : "Press Me"}</Text>}
           </Pressable>
         </Card>
-      </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback> */}
     </Wrapper>
   );
 }

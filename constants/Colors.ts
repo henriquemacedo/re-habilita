@@ -14,6 +14,7 @@ export default {
     tabBackground: primary,
     contentBackground: "#efeff4",
     card: "#fff",
+    legend: "#757575",
   },
   dark: {
     headerBar: primary,
@@ -25,5 +26,6 @@ export default {
     tabBackground: "#121212",
     contentBackground: "#171717",
     card: "#2b2b2b",
+    legend: "#757575",
   },
 };
