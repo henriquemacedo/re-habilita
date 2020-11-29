@@ -1,22 +1,23 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components/native";
 
-const StyledView = styled.View`
-  background-color: white;
+import GameWrapper from "../../components/GameWrapper";
+import GameLanguage from "../../components/GameLanguage";
+
+const Wrapper = styled.View`
   flex: 1;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 
-const StyledText = styled.Text`
-  font-size: 20px;
-  font-weight: bold;
-`;
-
-export default function GameLanguage() {
+export default function GameLanguageScreen() {
   return (
-    <StyledView>
-      <StyledText>Game Language</StyledText>
-    </StyledView>
+    <Wrapper>
+      <GameWrapper>
+        <GameLanguage />
+      </GameWrapper>
+    </Wrapper>
   );
 }

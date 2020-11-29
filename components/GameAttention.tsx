@@ -73,10 +73,12 @@ export default function GameAttention() {
         {orderFigures.slice(0, 4).map((item, index) => (
           <TouchArea
             key={index}
-            onTouchStart={() => {
+            onTouchStart={(e) => {
+              console.log("touch", e.nativeEvent);
               setCorrect(item.name === solid[0] ? true : false);
             }}
-            onTouchEnd={() => {
+            onTouchEnd={(e) => {
+              console.log("touch out", e.nativeEvent);
               setOrderFigures(random(figures));
               setSolid(random(chooseSolid).slice(0, 1));
               setCorrect(false);
