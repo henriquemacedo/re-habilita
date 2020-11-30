@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
 
+import Colors from "../constants/Colors";
+import useColorScheme from "../hooks/useColorScheme";
 import GameLegend from "./GameLegend";
 
 const Wrapper = styled.View`
@@ -29,6 +31,8 @@ const Word = styled.Text`
 `;
 
 export default function GameLanguage() {
+  const colorScheme = useColorScheme();
+
   const words = [
     {
       start: "s",
@@ -98,7 +102,9 @@ export default function GameLanguage() {
       <GameArea>
         {orderFigures.slice(0, 1).map((item) => (
           <>
-            <Word>{item.start}</Word>
+            <Word style={{ color: Colors[colorScheme].text }}>
+              {item.start}
+            </Word>
             <TouchArea
               onTouchStart={(e) => {
                 console.log("touch", e.nativeEvent);
@@ -110,10 +116,10 @@ export default function GameLanguage() {
                 setCorrect(false);
               }}
               style={{
-                backgroundColor: correct ? "#81C784" : "transparent",
+                backgroundColor: correct ? "#81C784" : "#eeeeee",
               }}
-            ></TouchArea>
-            <Word>{item.end}</Word>
+            />
+            <Word style={{ color: Colors[colorScheme].text }}>{item.end}</Word>
           </>
         ))}
       </GameArea>
