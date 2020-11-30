@@ -11,6 +11,7 @@ import GameAttentionScreen from "../screens/games/GameAttentionScreen";
 import GameLanguageScreen from "../screens/games/GameLanguageScreen";
 import GameRecognitionScreen from "../screens/games/GameRecognitionScreen";
 import GameMovementScreen from "../screens/games/GameMovementScreen";
+import PatientScreen from "../screens/patients/PatientScreen";
 import PatientsScreen from "../screens/PatientsScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import {
@@ -154,6 +155,17 @@ function PatientsNavigator() {
         component={PatientsScreen}
         options={{
           headerTitle: "Patients",
+          headerStyle: {
+            backgroundColor: Colors[colorScheme].safeArea,
+          },
+          headerTintColor: "#fff",
+        }}
+      />
+      <PatientsStack.Screen
+        name="PatientScreen"
+        component={PatientScreen}
+        options={{
+          headerTitle: "Maria Emília",
           headerStyle: {
             backgroundColor: Colors[colorScheme].safeArea,
           },

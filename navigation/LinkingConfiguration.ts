@@ -18,6 +18,7 @@ export default {
           Patients: {
             screens: {
               PatientsScreen: "patients",
+              PatientScreen: "patient",
             },
           },
           Settings: {

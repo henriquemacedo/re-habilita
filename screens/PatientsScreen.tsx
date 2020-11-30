@@ -1,22 +1,33 @@
 import * as React from "react";
 import styled from "styled-components/native";
+import { StackScreenProps } from "@react-navigation/stack";
+import { Button } from "react-native";
 
-const StyledView = styled.View`
-  background-color: white;
+import GameWrapper from "../components/GameWrapper";
+// import GameAttention from "../../components/GameAttention";
+
+const Wrapper = styled.View`
   flex: 1;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 
-const StyledText = styled.Text`
-  font-size: 20px;
-  font-weight: bold;
-`;
-
-export default function PatientsScreen() {
+export default function PatientsScreen({
+  navigation,
+}: StackScreenProps<{
+  PatientScreen: any;
+}>) {
   return (
-    <StyledView>
-      <StyledText>Patients</StyledText>
-    </StyledView>
+    <Wrapper>
+      <GameWrapper>
+        {/* <GameAttention /> */}
+        <Button
+          onPress={() => navigation.navigate("PatientScreen")}
+          title="Maria Emília Details"
+        />
+      </GameWrapper>
+    </Wrapper>
   );
 }

@@ -19,6 +19,7 @@ export type GamesParamList = {
 
 export type PatientsParamList = {
   PatientsScreen: undefined;
+  PatientScreen: undefined;
 };
 
 export type SettingsParamList = {
