@@ -266,7 +266,7 @@ export default function GameAttentionScreen() {
             <ProgressCircle
               style={{ height: 200, paddingVertical: 26 }}
               strokeWidth={20}
-              progress={0.7}
+              progress={0.68}
               progressColor={"#311B92"}
             />
           </View>
@@ -280,7 +280,7 @@ export default function GameAttentionScreen() {
             <ProgressCircle
               style={{ height: 200, paddingVertical: 26 }}
               strokeWidth={20}
-              progress={0.7}
+              progress={0.79}
               progressColor={"#673AB7"}
             />
           </View>
@@ -308,7 +308,7 @@ export default function GameAttentionScreen() {
             <ProgressCircle
               style={{ height: 200, paddingVertical: 26 }}
               strokeWidth={20}
-              progress={0.7}
+              progress={0.95}
               progressColor={"#D1C4E9"}
             />
           </View>
