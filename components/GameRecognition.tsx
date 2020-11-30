@@ -66,7 +66,7 @@ export default function GameRecognition() {
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1142,
-      duration: 1000,
+      duration: 15000,
       useNativeDriver: false,
     }).start(({ finished }) => {
       if (finished) {
