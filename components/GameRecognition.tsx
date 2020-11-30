@@ -39,7 +39,7 @@ export default function GameRecognition() {
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1142,
-      duration: 10000,
+      duration: 15000,
       useNativeDriver: false,
     }).start(({ finished }) => {
       if (finished) {
@@ -86,7 +86,12 @@ export default function GameRecognition() {
           )}
         </MainArea>
       </GameArea>
-      <GameLegend legend="Place the missing letter on top of the square" />
+      {viewSolid && (
+        <GameLegend legend="Memorize the figure above in 15 seconds" />
+      )}
+      {viewAnswer && (
+        <GameLegend legend="Place the object that is seen before on top of the screen" />
+      )}
     </Wrapper>
   );
 }
